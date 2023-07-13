@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: reddddddddd/hfte-auth:20
+          image: reddddddddd/hfte-auth:21
           ports:
             - containerPort: 8004
 
