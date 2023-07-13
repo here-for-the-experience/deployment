@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: reddddddddd/hfte-frontend:v1
+        image: reddddddddd/hfte-frontend:1
         imagePullPolicy: Always
         ports:
         - name: http
