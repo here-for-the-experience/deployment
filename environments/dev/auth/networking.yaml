@@ -1,0 +1,39 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-net-auth
+  namespace: ns-auth
+  annotations:
+    nginx.ingress.kubernetes.io/scheme: internet-facing
+    nginx.ingress.kubernetes.io/group-name: ns-net
+    nginx.ingress.kubernetes.io/group-order: "6"
+    
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cert-manager-global
+
+    # nginx.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+
+    # turn on promethues on /metrics
+    nginx.ingress.kubernetes.io/enable-prometheus-metrics: "true"
+    promethues.io/scrape: "true"
+    promethues.io/port: "10254"
+    promethues.io/path: "/metrics"
+
+spec:
+  ingressClassName: external-nginx
+  rules:
+    - host: dev.auth.redevops.store
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-auth
+                port:
+                  number: 8004
+  tls:
+  - hosts:
+    - dev.auth.redevops.store
+    secretName: ssl-certificate-tls

@@ -1,0 +1,84 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-front
+---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: frontend
+#   namespace: ns-front
+#   labels:
+#     app: frontend
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: frontend
+#   template:
+#     metadata:
+#       labels:
+#         app: frontend
+#     spec:
+#       containers:
+#         - name: magpie-frontend
+#           image: reddddddddd/magpie-frontend:5
+#           ports:
+#             - containerPort: 5173
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: frontend
+  namespace: ns-front
+  labels:
+    app: frontend
+spec:
+  replicas: 5
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: reddddddddd/magpie-frontend:11
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 5173
+          protocol: TCP
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
+  strategy:
+    canary:
+      canaryService: frontend
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 40
+      - pause: {duration: 10}
+      - setWeight: 60
+      - pause: {duration: 10}
+      - setWeight: 80
+      - pause: {duration: 10}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+  namespace: ns-front
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 5173
+  selector:
+    app: frontend
