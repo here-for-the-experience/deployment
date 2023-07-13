@@ -23,17 +23,17 @@ metadata:
 spec:
   ingressClassName: external-nginx
   rules:
-    - host: dev.admin.redevops.store
+    - host: admin.redevops.store
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: front-admin
                 port:
                   number: 5173
   tls:
   - hosts:
-    - dev.admin.redevops.store
+    - admin.redevops.store
     secretName: ssl-certificate-tls
