@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: reddddddddd/magpie-app:2
+          image: reddddddddd/hfte-app:init
           ports:
             - containerPort: 8001
 
