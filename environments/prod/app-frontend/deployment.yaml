@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: reddddddddd/magpie-frontend:11
+        image: reddddddddd/hfte-frontend:v1
         imagePullPolicy: Always
         ports:
         - name: http
