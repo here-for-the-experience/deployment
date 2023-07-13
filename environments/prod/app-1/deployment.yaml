@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
       - name: nginx-1
-        image: reddddddddd/hfte-app:1
+        image: reddddddddd/hfte-app:2
         imagePullPolicy: Always
         ports:
         - name: http
