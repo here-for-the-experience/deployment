@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: reddddddddd/hfte-app:init
+          image: reddddddddd/hfte-app:1
           ports:
             - containerPort: 8001
 
