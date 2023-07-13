@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: nginx-auth
-        image: reddddddddd/hfte-auth:5
+        image: reddddddddd/hfte-auth:6
         imagePullPolicy: Always
         ports:
         - name: http
