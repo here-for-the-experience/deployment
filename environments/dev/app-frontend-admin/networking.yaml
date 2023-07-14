@@ -2,8 +2,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-net-2
-  namespace: ns-front
+  name: nginx-net-front-admin
+  namespace: ns-front-admin
   annotations:
     nginx.ingress.kubernetes.io/scheme: internet-facing
     nginx.ingress.kubernetes.io/group-name: ns-net
