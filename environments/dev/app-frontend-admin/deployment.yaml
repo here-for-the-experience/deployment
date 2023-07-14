@@ -7,22 +7,22 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-admin
   namespace: ns-front
   labels:
-    app: frontend
+    app: frontend-admin
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: frontend-admin
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-admin
     spec:
       containers:
-        - name: magpie-frontend
+        - name: magpie-frontend-admin
           image: reddddddddd/hfte-front-admin:3
           ports:
             - containerPort: 5173
@@ -31,7 +31,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: frontend
+  name: frontend-admin
   namespace: ns-front
 spec:
   type: ClusterIP
@@ -39,4 +39,4 @@ spec:
     - name: web
       port: 5173
   selector:
-    app: frontend
+    app: frontend-admin

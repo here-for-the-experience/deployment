@@ -30,7 +30,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: frontend-admin
                 port:
                   number: 5173
   tls:

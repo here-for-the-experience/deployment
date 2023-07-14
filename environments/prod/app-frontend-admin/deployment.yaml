@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: front-admin
-        image: reddddddddd/hfte-front-admin:v1
+        image: reddddddddd/hfte-front-adminc:v1
         imagePullPolicy: Always
         ports:
         - name: http
