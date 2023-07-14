@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: magpie-frontend
-          image: reddddddddd/hfte-frontend:7
+          image: reddddddddd/hfte-frontend:8
           ports:
             - containerPort: 5173
 
