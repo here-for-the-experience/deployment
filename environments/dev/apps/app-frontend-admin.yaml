@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: frontend-admin # Name of this app
+  name: app-frontend-admin # Name of this app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
