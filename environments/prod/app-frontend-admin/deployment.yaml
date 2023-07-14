@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ns-front
+  name: ns-front-admin
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: front-admin
-  namespace: ns-front
+  namespace: ns-front-admin
   labels:
     app: front-admin
 spec:
@@ -52,7 +52,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: front-admin
-  namespace: ns-front
+  namespace: ns-front-admin
 spec:
   type: ClusterIP
   ports:
