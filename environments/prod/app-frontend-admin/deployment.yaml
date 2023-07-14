@@ -7,7 +7,7 @@ metadata:
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: frontend
+  name: front-admin
   namespace: ns-front
   labels:
     app: front-admin
